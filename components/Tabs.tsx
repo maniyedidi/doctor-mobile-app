@@ -22,6 +22,7 @@ export default function Tabs({
                   ? { ...styles.labelContainer, ...styles.activeLabelContainer }
                   : styles.labelContainer
               }
+              key={label}
               onPress={() => onPress(label)}
             >
               <Text style={styles.centerText}>{label}</Text>
