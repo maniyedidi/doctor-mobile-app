@@ -24,7 +24,7 @@ export default function Tabs({
               }
               onPress={() => onPress(label)}
             >
-              <Text>{label}</Text>
+              <Text style={styles.centerText}>{label}</Text>
             </TouchableOpacity>
           );
         })}
@@ -42,13 +42,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   labelContainer: {
-    width: 120,
+    width: 140,
     alignItems: "center",
     justifyContent: "center",
     fontWeight: 600,
     borderRadius: 30,
-    flexWrap: "wrap",
-    padding: 5,
+    paddingVertical:5,     
   },
   activeLabelContainer: {
     backgroundColor: "#acddec",
@@ -64,4 +63,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 10,
   },
+  centerText:{
+    textAlign: 'center',
+    flexWrap: 'wrap'
+  }
 });
