@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import { Text, View } from "./Themed";
 import { Avatar, Button, Card } from "react-native-paper";
 import IconText from "./IconText";
+import ConfirmModal from "./ConfirmModal";
 
 export default function AppointmentCard({
   details,
@@ -38,17 +39,17 @@ export default function AppointmentCard({
         <Button
           contentStyle={styles.button}
           labelStyle={styles.buttonLabelStyle}
-          mode="outlined"
+          mode="outlined"          
         >
           Reschedule
         </Button>
-        <Button
-          contentStyle={styles.button}
-          labelStyle={styles.buttonLabelStyle}
-          mode="outlined"
-        >
-          Cancel Appointment
-        </Button>
+        <ConfirmModal
+          primaryMessage="Are you sure want to cancel appointment?"
+          label="Cancel Appointment"
+          style={styles.cancelBtnStyle}
+          textColor="red"
+          onYes={() => {}}
+        />
         <Button
           contentStyle={styles.button}
           labelStyle={styles.buttonLabelStyle}
@@ -90,5 +91,9 @@ const styles = StyleSheet.create({
   buttonLabelStyle: {
     fontSize: 10,
     height: 20,
+  },
+  cancelBtnStyle: {
+    borderColor: "red",
+    borderWidth: 1,
   },
 });

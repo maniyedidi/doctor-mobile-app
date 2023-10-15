@@ -43,7 +43,7 @@ export default function AppointmentManagement() {
                   details={{
                     id: `${i}`,
                     date: "2023-10-13T14:32:53.764Z",
-                    name: "Test User",
+                    name: `Test User ${i}`,
                   }}
                 />
               </View>
