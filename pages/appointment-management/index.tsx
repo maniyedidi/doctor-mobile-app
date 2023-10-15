@@ -16,7 +16,7 @@ export default function AppointmentManagement() {
   const windowDimensions = Dimensions.get("window");
   return (
     <ImageBackground
-      source={require("../../assets/images/header_bg.png")}
+      source={require("../../assets/images/bg.png")}
       resizeMode="cover"
       style={styles.image}
     >
@@ -45,6 +45,7 @@ export default function AppointmentManagement() {
                     date: "2023-10-13T14:32:53.764Z",
                     name: `Test User ${i}`,
                   }}
+                  hideButtons={false}
                 />
               </View>
             );
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   },
   section2: {
     marginBottom: 20,
-    marginHorizontal: 20,    
+    marginHorizontal: 20,
   },
   card: {
     width: 290,

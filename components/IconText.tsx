@@ -9,13 +9,7 @@ export default function IconText({
   label: string;
 }) {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        gap: 10,
-      }}
-    >
+    <View style={styles.container}>
       <Image style={styles.icon} source={source} />
       <Text style={styles.text}>{label}</Text>
     </View>
@@ -23,11 +17,16 @@ export default function IconText({
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
   icon: {
     width: 20,
     height: 20,
   },
   text: {
-    fontSize: 10,
+    fontSize: 14,
   },
 });

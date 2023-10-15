@@ -8,12 +8,14 @@ import ConfirmModal from "./ConfirmModal";
 
 export default function AppointmentCard({
   details,
+  hideButtons,
 }: {
   details: {
     id: string;
     date: string;
     name: string;
   };
+  hideButtons: boolean;
 }) {
   return (
     <Card contentStyle={styles.card}>
@@ -35,29 +37,31 @@ export default function AppointmentCard({
           </View>
         </View>
       </View>
-      <View style={styles.row2}>
-        <Button
-          contentStyle={styles.button}
-          labelStyle={styles.buttonLabelStyle}
-          mode="outlined"          
-        >
-          Reschedule
-        </Button>
-        <ConfirmModal
-          primaryMessage="Are you sure want to cancel appointment?"
-          label="Cancel Appointment"
-          style={styles.cancelBtnStyle}
-          textColor="red"
-          onYes={() => {}}
-        />
-        <Button
-          contentStyle={styles.button}
-          labelStyle={styles.buttonLabelStyle}
-          mode="outlined"
-        >
-          Enter Room
-        </Button>
-      </View>
+      {!hideButtons && (
+        <View style={styles.row2}>
+          <Button
+            contentStyle={styles.button}
+            labelStyle={styles.buttonLabelStyle}
+            mode="outlined"
+          >
+            Reschedule
+          </Button>
+          <ConfirmModal
+            primaryMessage="Are you sure want to cancel appointment?"
+            label="Cancel Appointment"
+            style={styles.cancelBtnStyle}
+            textColor="red"
+            onYes={() => {}}
+          />
+          <Button
+            contentStyle={styles.button}
+            labelStyle={styles.buttonLabelStyle}
+            mode="outlined"
+          >
+            Enter Room
+          </Button>
+        </View>
+      )}
     </Card>
   );
 }

@@ -1,7 +1,4 @@
 import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
 import AppointmentManagement from '../../pages/appointment-management';
 
 export default function TabOneScreen() {
