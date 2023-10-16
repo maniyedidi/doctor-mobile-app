@@ -1,6 +1,7 @@
 import { StyleSheet, View } from "react-native";
-import { Card, ProgressBar, Text } from "react-native-paper";
 import DoctorInfo from "../../components/DoctorInfo";
+import ConsultationsCharts from "../../components/ConsultationsCharts";
+import DashboardHistoryCard from "../../components/DashboardHistoryCard";
 
 const DOCTOR_DETAILS = {
   status: "Consultations Completed",
@@ -10,54 +11,25 @@ const DOCTOR_DETAILS = {
   qualification: "MBBS,DGO,DNB-Gynecology,MNAMS-Gynaecolgy",
 };
 
+const CHART_DETAILS = {
+  revenue: 345.445,
+  count: 4324,
+  barPercentages1: 0.5,
+  barPercentages2: 0.3,
+  barPercentages3: 0.6,
+};
+
+const HISTORY = [
+  { appointNo: 121, name: "Test user" },
+  { appointNo: 122, name: "Test user 2" },
+];
+
 export default function Home() {
   return (
     <View style={styles.container}>
       <DoctorInfo doctorDetails={DOCTOR_DETAILS} />
-      <Card contentStyle={styles.consultationCard}>
-        <Text>Consultations</Text>
-        <View style={styles.consultationSection}>
-          <View>
-            <Text>Circle</Text>
-          </View>
-          <View>
-            <Text>Month: June</Text>
-            <View style={styles.ageChart}>
-              <Text>Age</Text>
-              <View style={styles.consultationSection}>
-                <Text style={styles.intoText}>18-25</Text>
-                <ProgressBar progress={0.5} style={styles.barStyles} />
-              </View>
-              <View style={styles.consultationSection}>
-                <Text style={styles.intoText}>25-30</Text>
-                <ProgressBar
-                  progress={0.3}
-                  color="green"
-                  style={styles.barStyles}
-                />
-              </View>
-              <View style={styles.consultationSection}>
-                <Text style={styles.intoText}>30-35</Text>
-                <ProgressBar
-                  progress={1}
-                  color="orange"
-                  style={styles.barStyles}
-                />
-              </View>
-            </View>
-          </View>
-          <View>
-            <View style={styles.amounts}>
-              <Text style={styles.amountTitle}>Revenue</Text>
-              <Text style={styles.amount}>$345.445</Text>
-            </View>
-            <View style={styles.amounts}>
-              <Text style={styles.amountTitle}>Total conslt.</Text>
-              <Text style={styles.amount}>4324</Text>
-            </View>
-          </View>
-        </View>
-      </Card>
+      <ConsultationsCharts chartDetails={CHART_DETAILS} />
+      <DashboardHistoryCard historyList={HISTORY} />
     </View>
   );
 }
@@ -66,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 60,
     flexDirection: "column",
-    gap: 20,    
+    gap: 20,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -115,7 +87,7 @@ const styles = StyleSheet.create({
   },
   consultationSection: {
     flexDirection: "row",
-    gap: 10,    
+    gap: 10,
     alignItems: "center",
   },
 });

@@ -6,17 +6,19 @@ import { Avatar, Button, Card } from "react-native-paper";
 import IconText from "./IconText";
 import ConfirmModal from "./ConfirmModal";
 
-export default function AppointmentCard({
-  details,
-  hideButtons,
-}: {
+interface AppointmentCardProps {
   details: {
     id: string;
     date: string;
     name: string;
   };
   hideButtons: boolean;
-}) {
+}
+
+const AppointmentCard: React.FC<AppointmentCardProps> = ({
+  details,
+  hideButtons,
+}) => {
   return (
     <Card contentStyle={styles.card}>
       <View style={styles.row1}>
@@ -64,7 +66,9 @@ export default function AppointmentCard({
       )}
     </Card>
   );
-}
+};
+
+export default AppointmentCard;
 
 const styles = StyleSheet.create({
   card: {
