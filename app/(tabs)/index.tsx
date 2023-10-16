@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 import AppointmentManagement from '../../pages/appointment-management';
+import Home from '../../pages/home';
 
 export default function TabOneScreen() {
   return (
-    <AppointmentManagement/>
+    <Home/>
   );
 }
 
