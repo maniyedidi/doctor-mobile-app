@@ -1,18 +1,18 @@
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import DoctorInfo from "../../components/DoctorInfo";
 import ConsultationsCharts from "../../components/ConsultationsCharts";
 import DashboardHistoryCard from "../../components/DashboardHistoryCard";
+import UpcomingAppointments from "../../components/UpcomingAppointments";
+import Consultations from "../../components/Consultations";
+import PatientsReview from "../../components/PatientsReview";
+import PatientsCounts from "../../components/PatientsCounts";
 
 const DOCTOR_DETAILS = {
-  status: "Consultations Completed",
-  title: "Gynecologist",
-  experience: 43,
-  count: 4324,
-  qualification: "MBBS,DGO,DNB-Gynecology,MNAMS-Gynaecolgy",
+  name: "Dr. Vijaya Manohar",
+  status: "You have 5 appointments today!",
 };
 
 const CHART_DETAILS = {
-  revenue: 345.445,
   count: 4324,
   barPercentages1: 0.5,
   barPercentages2: 0.3,
@@ -24,13 +24,34 @@ const HISTORY = [
   { appointNo: 122, name: "Test user 2" },
 ];
 
+const APPOINTMENTS = [
+  {
+    appointNo: 121,
+    name: "Mrs. Devila Patel",
+    src: "",
+    date: new Date().toISOString(),
+    details: "PHR",
+  },
+  {
+    appointNo: 122,
+    name: "Mrs. Devila Patel",
+    src: "",
+    date: new Date().toISOString(),
+    details: "PHR",
+  },
+];
+
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <DoctorInfo doctorDetails={DOCTOR_DETAILS} />
-      <ConsultationsCharts chartDetails={CHART_DETAILS} />
-      <DashboardHistoryCard historyList={HISTORY} />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <DoctorInfo doctorDetails={DOCTOR_DETAILS} />
+        <UpcomingAppointments appointments={APPOINTMENTS} />
+        <Consultations details={CHART_DETAILS} />
+        <PatientsCounts newCount={100} oldCount={200}/>
+        <PatientsReview details={CHART_DETAILS} />        
+      </View>
+    </ScrollView>
   );
 }
 
@@ -38,7 +59,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 60,
     flexDirection: "column",
-    gap: 20,
+    gap: 10,
     alignItems: "center",
     justifyContent: "center",
   },

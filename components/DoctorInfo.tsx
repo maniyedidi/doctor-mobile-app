@@ -6,11 +6,8 @@ export default function DoctorInfo({
   doctorDetails,
 }: {
   doctorDetails: {
-    title: string;
-    experience: number;
-    count: number;
+    name: string;
     status: string;
-    qualification: string;
   };
 }) {
   return (
@@ -22,32 +19,18 @@ export default function DoctorInfo({
         />
       </View>
       <View style={styles.section}>
-        <View>
-          <Text style={styles.title}>{doctorDetails.title}</Text>
+        <Text style={styles.msg}>Good Morning</Text>
+        <View style={styles.nameSection}>
+          <Text style={styles.name}>{doctorDetails.name}</Text>
+          <TouchableOpacity>
+            <Image
+              style={{ width: 24, height: 24 }}
+              source={require("../assets/images/edit.png")}
+            />
+          </TouchableOpacity>
         </View>
-        <Divider />
-        <View style={{ flexDirection: "row", gap: 10 }}>
-          <View style={styles.doctorInfo}>
-            <Text style={styles.infoTitle}>Experience</Text>
-            <Text style={styles.intoText}>
-              {doctorDetails.experience} Years
-            </Text>
-            <Text style={styles.intoText}>{doctorDetails.count} Online</Text>
-            <Text style={styles.intoText}>{doctorDetails.status}</Text>
-          </View>
-          <View style={styles.doctorInfo}>
-            <Text style={styles.infoTitle}>Qualifications</Text>
-            <Text style={styles.intoText}>{doctorDetails.qualification}</Text>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <Image
-                style={{ width: 32, height: 32 }}
-                source={require("../assets/images/edit.png")}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
+
+        <Text style={styles.status}>{doctorDetails.status}</Text>
       </View>
     </Card>
   );
@@ -55,11 +38,10 @@ export default function DoctorInfo({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    backgroundColor: "#DEDEDE",
+    flexDirection: "row",    
     borderRadius: 20,
-    padding: 10,
-    gap: 10,
+    padding: 10,    
+    gap: 30,
   },
   avatar: {
     alignItems: "center",
@@ -69,31 +51,19 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     gap: 5,
   },
-  doctorInfo: {
-    flexDirection: "column",
-    gap: 5,
-    width: 100,
-  },
-  intoText: {
-    fontSize: 10,
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: "bold",
-  },
-  infoTitle: {
-    fontSize: 10,
-    fontWeight: "bold",
-  },
-  consultationCard: {
-    flexDirection: "column",
-    gap: 5,
-    backgroundColor: "#DEDEDE",
-    padding: 10,
-  },
-  consultationSection: {
+  nameSection: {
     flexDirection: "row",
-    gap: 10,
     alignItems: "center",
+    justifyContent: "space-between",
+  },
+  msg: {
+    fontSize: 15,
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  status: {
+    fontSize: 15,
   },
 });

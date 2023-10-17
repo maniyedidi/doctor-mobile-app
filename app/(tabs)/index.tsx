@@ -4,6 +4,7 @@ import Home from '../../pages/home';
 
 export default function TabOneScreen() {
   return (
+    // <AppointmentManagement/>
     <Home/>
   );
 }
