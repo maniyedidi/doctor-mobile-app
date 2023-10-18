@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { Button, Card, Divider, Switch } from "react-native-paper";
+import { Dropdown } from "react-native-element-dropdown";
 
 interface PrivacyAndSecurityProps {
   userDetails: {
@@ -27,7 +28,24 @@ const PrivacyAndSecurity: React.FC<PrivacyAndSecurityProps> = ({
       <Card contentStyle={styles.container} elevation={0}>
         <View style={styles.infoRow}>
           <Text style={styles.text}>Profile visibility </Text>
-          <Switch />
+          <Dropdown
+            style={[styles.dropdown]}
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles.inputSearchStyle}
+            iconStyle={styles.iconStyle}
+            data={[]}
+            search
+            maxHeight={300}
+            labelField="label"
+            valueField="value"
+            placeholder={true ? "Select item" : "..."}
+            searchPlaceholder="Search..."
+            value={""}
+            // onFocus={() => setIsFocus(true)}
+            // onBlur={() => setIsFocus(false)}
+            onChange={(item) => {}}
+          />
         </View>
         <Divider />
 
@@ -131,5 +149,37 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+
+  dropdown: {
+    height: 20,
+    borderColor: "gray",
+    backgroundColor: "#fff",
+    borderWidth: 0.5,    
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
+  label: {
+    position: "absolute",
+    backgroundColor: "white",
+    left: 22,
+    top: 8,
+    zIndex: 999,
+    paddingHorizontal: 8,
+    fontSize: 14,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
   },
 });

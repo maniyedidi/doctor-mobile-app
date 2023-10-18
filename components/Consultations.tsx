@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, Dimensions } from "react-native";
+import { Dropdown } from "react-native-element-dropdown";
 import { Avatar, Card, Divider, ProgressBar } from "react-native-paper";
 
 const windowDimensions = Dimensions.get("window");
@@ -21,7 +22,25 @@ const Consultations: React.FC<ConsultationsProps> = ({ details }) => {
         <Text style={styles.title}>Consultations</Text>
       </View>
       <View style={styles.titleContainer}>
-        <Text style={styles.month}>Month June</Text>
+        <Text style={styles.month}>Month </Text>
+        <Dropdown
+            style={[styles.dropdown]}
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles.inputSearchStyle}
+            iconStyle={styles.iconStyle}
+            data={[]}
+            search
+            maxHeight={300}
+            labelField="label"
+            valueField="value"
+            placeholder={true ? "Select item" : "..."}
+            searchPlaceholder="Search..."
+            value={""}
+            // onFocus={() => setIsFocus(true)}
+            // onBlur={() => setIsFocus(false)}
+            onChange={(item) => {}}
+          />
       </View>
       <View style={styles.appointmentRow}>
         <View style={styles.ageChart}>
@@ -116,5 +135,37 @@ const styles = StyleSheet.create({
   consultCount: {
     color: "#2E94D4",
     fontSize: 15,
+  },
+
+  dropdown: {
+    height: 20,
+    borderColor: "gray",
+    backgroundColor: "#fff",
+    borderWidth: 0.5,    
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
+  dropdownlabel: {
+    position: "absolute",
+    backgroundColor: "white",
+    left: 22,
+    top: 8,
+    zIndex: 999,
+    paddingHorizontal: 8,
+    fontSize: 14,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
   },
 });

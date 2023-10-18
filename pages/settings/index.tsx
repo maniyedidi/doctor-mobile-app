@@ -1,5 +1,4 @@
 import { ScrollView, StyleSheet, View } from "react-native";
-import NotificationCard from "../../components/NotificationCard";
 import ProfileCard from "../../components/ProfileCard";
 import NotificationSettings from "../../components/NotificationSettings";
 import PrivacyAndSecurity from "../../components/PrivacyAndSecurity";

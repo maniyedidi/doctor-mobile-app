@@ -7,9 +7,9 @@ import Settings from "../../pages/settings";
 export default function TabOneScreen() {
   return (
     // <AppointmentManagement/>
-    // <Home/>
+    <Home/>
     // <Notifications/>
-    <Settings />
+    // <Settings />
   );
 }
 
