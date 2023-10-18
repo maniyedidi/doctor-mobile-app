@@ -1,11 +1,13 @@
 import { StyleSheet } from 'react-native';
 import AppointmentManagement from '../../pages/appointment-management';
 import Home from '../../pages/home';
+import Notifications from '../../pages/notifications';
 
 export default function TabOneScreen() {
   return (
     // <AppointmentManagement/>
-    <Home/>
+    // <Home/>
+    <Notifications/>
   );
 }
 
