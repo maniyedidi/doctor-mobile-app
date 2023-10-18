@@ -3,6 +3,7 @@ import NotificationCard from "../../components/NotificationCard";
 import ProfileCard from "../../components/ProfileCard";
 import NotificationSettings from "../../components/NotificationSettings";
 import PrivacyAndSecurity from "../../components/PrivacyAndSecurity";
+import Logout from "../../components/Logout";
 
 const userDetails = {
   name: "Dr. Rakesh Jha",
@@ -20,6 +21,7 @@ export default function Settings() {
         <ProfileCard userDetails={userDetails} />
         <NotificationSettings userDetails={userDetails} />
         <PrivacyAndSecurity userDetails={userDetails} />
+        <Logout/>
       </View>
     </ScrollView>
   );
