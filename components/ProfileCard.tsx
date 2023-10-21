@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { Button, Card } from "react-native-paper";
+import UpdateInfoModal from "./UpdatedInfoModal";
 
 interface ProfileCardProps {
   userDetails: {
@@ -14,6 +15,7 @@ interface ProfileCardProps {
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({ userDetails }) => {
+  const [open, setOpen] = useState(false);
   return (
     <View
       style={{
@@ -59,10 +61,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ userDetails }) => {
               />
               <Text style={styles.text}>{userDetails.email}</Text>
             </View>
-            <Image
-              style={styles.icon}
-              source={require("../assets/images/right.png")}
-            />
+            <TouchableOpacity onPress={() => setOpen(true)}>
+              <Image
+                style={styles.icon}
+                source={require("../assets/images/right.png")}
+              />
+            </TouchableOpacity>
           </View>
           <View style={styles.infoRow}>
             <View style={styles.section1}>
@@ -72,10 +76,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ userDetails }) => {
               />
               <Text style={styles.text}>{userDetails.mobile}</Text>
             </View>
-            <Image
-              style={styles.icon}
-              source={require("../assets/images/right.png")}
-            />
+            <TouchableOpacity onPress={() => setOpen(true)}>
+              <Image
+                style={styles.icon}
+                source={require("../assets/images/right.png")}
+              />
+            </TouchableOpacity>
           </View>
           <View style={styles.infoRow}>
             <View style={styles.section1}>
@@ -85,10 +91,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ userDetails }) => {
               />
               <Text style={styles.text}>{userDetails.profession}</Text>
             </View>
-            <Image
-              style={styles.icon}
-              source={require("../assets/images/right.png")}
-            />
+            <TouchableOpacity onPress={() => setOpen(true)}>
+              <Image
+                style={styles.icon}
+                source={require("../assets/images/right.png")}
+              />
+            </TouchableOpacity>
           </View>
           <View style={styles.infoRow}>
             <View style={styles.section1}>
@@ -98,13 +106,24 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ userDetails }) => {
               />
               <Text style={styles.text}>{userDetails.qualification}</Text>
             </View>
-            <Image
-              style={styles.icon}
-              source={require("../assets/images/right.png")}
-            />
+            <TouchableOpacity onPress={() => setOpen(true)}>
+              <Image
+                style={styles.icon}
+                source={require("../assets/images/right.png")}
+              />
+            </TouchableOpacity>
           </View>
         </View>
       </Card>
+
+      <UpdateInfoModal
+        title="Update Mobile number"
+        inputLabel="Phone"
+        onYes={() => {}}
+        open={open}
+        src={require("../assets/images/bell.png")}
+        onRequestClose={() => setOpen(false)}
+      />
     </View>
   );
 };

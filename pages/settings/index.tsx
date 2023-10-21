@@ -3,6 +3,7 @@ import ProfileCard from "../../components/ProfileCard";
 import NotificationSettings from "../../components/NotificationSettings";
 import PrivacyAndSecurity from "../../components/PrivacyAndSecurity";
 import Logout from "../../components/Logout";
+import UpdateInfoModal from "../../components/UpdatedInfoModal";
 
 const userDetails = {
   name: "Dr. Rakesh Jha",
@@ -13,14 +14,15 @@ const userDetails = {
   profession: "Profession",
 };
 
-export default function Settings() {
+export default function Settings() {  
   return (
     <ScrollView>
       <View style={styles.container}>
         <ProfileCard userDetails={userDetails} />
+
         <NotificationSettings userDetails={userDetails} />
         <PrivacyAndSecurity userDetails={userDetails} />
-        <Logout/>
+        <Logout />
       </View>
     </ScrollView>
   );
